@@ -15,6 +15,7 @@ Henrique Finatti Silveira: 22.123.030-3
 **Linguagens**
 - Python
 - Type Script
+  
 **Framework**
 - FastAPI
 - React Native
