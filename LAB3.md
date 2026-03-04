@@ -70,8 +70,6 @@ graph LR
 
 # 3) Interfaces do sistema
 
-
-
 ```mermaid 
 ---
 config:
@@ -231,7 +229,7 @@ ou
 **Pós Condições:**
 - Mensagem enviada com sucesso ao caminhoneiro com as informações da candidatura
 
-  ### **Operação:** notificarCaminhoneiroCandidaturaAceita(caminhoneiro,candidatura)
+### **Operação:** notificarCaminhoneiroCandidaturaAceita(caminhoneiro,candidatura)
 
 **Pré-Condições:**
 - O caminhoneiro deve estar cadastrado
