@@ -154,10 +154,7 @@ direction LR
 ```
 
 # 5) Componentes do Sistema
-1. Demandas
-2. Candidatura
-3. Mensagem
-4. Chat
+
 
 # 6) Contrato das Operações
 ## Componente Demandas
