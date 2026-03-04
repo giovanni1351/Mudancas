@@ -68,7 +68,7 @@ graph LR
 1. Sistema cria uma seção de chat com os 2 envolvidos
 1. Sistema envia mensagem de candidatura aceita com sucesso para o criador de demandas
 
-## 3) Interfaces do sistema
+# 3) Interfaces do sistema
 
 
 
@@ -112,7 +112,7 @@ direction LR
   <<Interface>> CandidatarDemanda
   <<Interface>> AceitarCandidato
 ```
-## 4) Interfaces coesas
+# 4) Interfaces coesas
 
 ```mermaid 
 ---
@@ -152,3 +152,54 @@ direction LR
   <<Interface>> ChatService
   <<Interface>> CandidaturaService
 ```
+
+# 5) Componentes do Sistema
+1. Demandas
+2. Candidatura
+3. Mensagem
+4. Chat
+
+# 6) Contrato das Operações
+## Componente Demandas
+### **Operação:** Registrar Demandas
+
+**Pré-Condições:**
+- Usuário deve estar logado
+- A demanda deve ser válida
+
+**Pós Condições:**
+- Demanda criada é persistente
+
+### **Operação:** Buscar Demanda
+
+**Pré-Condições:**
+- As demandas devem ser válidas
+
+**Pós Condições:** As demandas existentes são mostradas
+
+### **Operação:** Mostrar Detalhe Demanda
+
+**Pré-Condições:**
+- A demanda deve ser válida
+
+**Pós Condições:**
+- A demanda requisitada é exibida
+
+### **Operação:** Associar Caminhoneiro a Demanda
+
+**Pré-Condições:**
+- O caminhoneiro deve estar cadastrado
+- O caminhoneiro deve estar sem demandas associadas
+- A demanda deve ser válida
+
+**Pós Condições:**
+- Associação criada é persistente
+
+## Componente Candidatura
+### **Operação:** Registrar Candidatura
+
+**Pré-Condições:**
+- A candidatura deve ser válida
+
+**Pós Condições:**
+- 
