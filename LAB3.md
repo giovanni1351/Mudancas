@@ -155,7 +155,7 @@ direction LR
 
 
 # 6) Contrato das Operações
-## Componente Demandas
+## DemandaService
 
 ### **Operação:** validarInformações(demanda)
 
@@ -210,7 +210,7 @@ ou
 - Associação não criada
 
 
-## Componente Mensagem
+## MensagemService
 ### **Operação:** enviarMensagemDemandaCadastrada(criadorDemanda)
 
 **Pré-Condições:**
@@ -253,7 +253,7 @@ ou
 **Pós Condições:**
 - Mensagem enviada com sucesso ao criador da demanda
 
-## Componente Candidatura
+## CandidaturaService
 ### **Operação:** registrarCandidatura(candidaturaValidada)
 
 **Pré-Condições:**
@@ -289,7 +289,7 @@ ou
 - Informa que a demanda é inválida
 
 
-## Componente Chat
+## ChatService
 ### **Operação:** criarSessaoChat(caminhoneiro,criadorDemandas)
 
 **Pré-Condições:**
