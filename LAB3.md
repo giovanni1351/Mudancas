@@ -144,7 +144,7 @@ direction LR
             
     }
     class ChatService{
-      +criarSessãoChat(caminhoneiro,criadorDemandas)
+      +criarSessaoChat(caminhoneiro,criadorDemandas)
     }
 
   <<Interface>> DemandasService
@@ -161,45 +161,150 @@ direction LR
 
 # 6) Contrato das Operações
 ## Componente Demandas
-### **Operação:** Registrar Demandas
+
+### **Operação:** validarInformações(demanda)
+
+**Pré Condições:**
+- Demanda não deve ser nula
+- Demanda deve estar no formato válido
+
+**Pós Condições:**
+- Demanda cadastrada com sucesso
+ou
+- Demanda inválida
+
+### **Operação:** registrarDemanda(demandaValidada)
 
 **Pré-Condições:**
-- Usuário deve estar logado
 - A demanda deve ser válida
 
 **Pós Condições:**
-- Demanda criada é persistente
+- Demanda registrada com sucesso
+ou
+- Demanda não registrada
 
-### **Operação:** Buscar Demanda
+### **Operação:** buscarTodasDemandas()
 
 **Pré-Condições:**
-- As demandas devem ser válidas
 
 **Pós Condições:** As demandas existentes são mostradas
 
-### **Operação:** Mostrar Detalhe Demanda
+### **Operação:** mostrarDetalheDemanda(demandaId)
 
 **Pré-Condições:**
-- A demanda deve ser válida
+- O Id da demanda deve se referir a uma demanda existente
+- O Id da demanda não pode ser nulo
 
 **Pós Condições:**
 - A demanda requisitada é exibida
+ou
+- Não é encontrado demanda com o ID fornecido
 
-### **Operação:** Associar Caminhoneiro a Demanda
+### **Operação:** associaCaminhoneiroDemanda(caminhoneiro,demanda)
 
 **Pré-Condições:**
 - O caminhoneiro deve estar cadastrado
 - O caminhoneiro deve estar sem demandas associadas
-- A demanda deve ser válida
+- A demanda deve existir no sistema
+- Caminhoneiro não deve ser nulo
+- Demanda não deve ser nula
 
 **Pós Condições:**
-- Associação criada é persistente
+- O caminhoneiro é associado à demanda
+ou
+- Associação não criada
 
-## Componente Candidatura
-### **Operação:** Registrar Candidatura
+
+## Componente Mensagem
+### **Operação:** enviarMensagemDemandaCadastrada(criadorDemanda)
 
 **Pré-Condições:**
-- A candidatura deve ser válida
+- O criador da demanda não deve ser nulo
+- O criador da demanda deve existir
 
 **Pós Condições:**
-- O caminhoneiro será registrado como candidato a tarefa
+- Mensagem enviada ao criador com as informações do cadastro
+
+### **Operação:** enviarMensagemDeCandidaturaFeita(caminhoneiro)
+
+**Pré-Condições:**
+- O caminhoneiro deve estar cadastrado
+- O caminhoneiro não deve ser nulo
+
+**Pós Condições:**
+- Mensagem enviada com sucesso ao caminhoneiro com as informações da candidatura
+
+  ### **Operação:** notificarCaminhoneiroCandidaturaAceita(caminhoneiro,candidatura)
+
+**Pré-Condições:**
+- O caminhoneiro deve estar cadastrado
+- O caminhoneiro não deve ser nulo
+- O caminhoneiro deve ter se candidato a uma demanda
+- A candidatura não deve ser nula
+- A candidatura deve ter sido aceita pelo criador
+
+**Pós Condições:**
+- Mensagem enviada com sucesso ao caminhoneiro com as informações do aceite da candidatura
+
+### **Operação:** enviarMensagemCandidaturaAceitaCriadorDemadas(criadorDemandas,demanda)
+
+**Pré-Condições:**
+- O criador deve estar cadastrado
+- O criador não deve ser nulo
+- O criador deve ter criado uma demanda
+- A demanda não deve ser nula
+- A demanda dever estar no formato válido
+
+**Pós Condições:**
+- Mensagem enviada com sucesso ao criador da demanda
+
+## Componente Candidatura
+### **Operação:** registrarCandidatura(candidaturaValidada)
+
+**Pré-Condições:**
+- A candidatura deve ter sido válidada
+- A candidatura não deve ser nula
+
+**Pós Condições:**
+- Candidatura criada
+ou
+- Candidatura não criada
+
+### **Operação:** validarInformaçõesCandidaturas(candidatura)
+
+**Pré-Condições:**
+- A candidatura deve estar em um formato válido
+- A candidatura não deve ser nula
+
+**Pós Condições:**
+- Candidatura validada
+ou
+- Candidatura não validada
+
+### **Operação:** mostrarListaCandidatos(demanda)
+
+**Pré-Condições:**
+- A demanda não deve ser nula
+- A demanda deve ter sido validada
+- O candidato deve ter se candidatado aquela demanda
+
+**Pós Condições:**
+- Mostra os candidatos a aquela demanda
+ou
+- Informa que a demanda é inválida
+
+
+## Componente Chat
+### **Operação:** criarSessaoChat(caminhoneiro,criadorDemandas)
+
+**Pré-Condições:**
+- O caminhoneiro deve ter sido aceito na demanda
+- O caminhoneiro não deve ser nulo
+- O caminhoneiro deve estar cadastrado
+- O criador da demanda deve existir
+- O criador da demanda não deve ser nulo
+
+**Pós Condições:**
+- Sessão de chat criada com sucesso
+ou
+- Sessão de chat não criada
