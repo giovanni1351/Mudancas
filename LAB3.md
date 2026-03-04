@@ -202,4 +202,4 @@ direction LR
 - A candidatura deve ser válida
 
 **Pós Condições:**
-- 
+- O caminhoneiro será registrado como candidato a tarefa
