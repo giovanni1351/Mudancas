@@ -13,13 +13,3 @@ class CandidaturaService(ABC):
     @abstractmethod
     def mostrarListaCandidatos(self, demanda):
         raise NotImplementedError("Metodo para mostrar lista de candidatos.")
-
-class Candidatura(CandidaturaService):
-    def validarInformaçõesCandidaturas(self, candidatura):
-        pass
-
-    def registrarCandidatura(self, candidaturaValidada):
-        pass
-
-    def mostrarListaCandidatos(self, demanda):
-        pass

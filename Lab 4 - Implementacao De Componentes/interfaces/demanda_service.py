@@ -21,19 +21,3 @@ class DemandaService(ABC):
     @abstractmethod
     def associaCaminhoneiroDemanda(self, caminhoneiro,demanda):
         raise NotImplementedError("Metodo para associar caminhoneiro a demanda não implementado.")
-
-class Demanda(DemandaService):
-    def validarInformações(self, demanda):
-        pass
-
-    def registrarDemanda(self, demandaValidada):
-        pass
-
-    def buscarTodasDemandas(self):
-        pass
-
-    def mostrarDetalheDemanda(self, demandaId):
-        pass
-
-    def associaCaminhoneiroDemanda(self, caminhoneiro,demanda):
-        pass
