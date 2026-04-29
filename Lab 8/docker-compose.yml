@@ -1,0 +1,38 @@
+services:
+  servico_notificacao:
+    build:
+      context: .
+      dockerfile: servico_notificacao/Dockerfile
+    container_name: mudapp-notificacao
+    ports:
+      - "8001:8001"
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:8001/health')\""]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - mudapp-net
+    restart: unless-stopped
+
+  servico_candidatura:
+    build:
+      context: .
+      dockerfile: servico_candidatura/Dockerfile
+    container_name: mudapp-candidatura
+    ports:
+      - "8000:8000"
+    environment:
+      # URL interna da rede Docker — não usar localhost aqui
+      - NOTIFICACAO_URL=http://servico_notificacao:8001
+    depends_on:
+      servico_notificacao:
+        condition: service_healthy
+    networks:
+      - mudapp-net
+    restart: unless-stopped
+
+networks:
+  mudapp-net:
+    driver: bridge
